@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'juggle'
+
+@jug = Juggle::Jugfile.new
+@jug.load
+
+if @jug.selected_project and @jug.projects[@jug.selected_project] then
+  newdir = @jug.projects[@jug.selected_project].cwd
+  if newdir!=Dir.pwd then
+    puts "cd #{newdir}"
+  end
+end

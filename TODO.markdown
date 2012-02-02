@@ -1,0 +1,4 @@
+TODO
+====
+
+* Autoload ~/.juggle/resources
