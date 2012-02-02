@@ -5,20 +5,20 @@ Juggle is a tool for managing different software projects. Every time I bounce b
 
 That's where Juggle comes in to help me Juggle my projects.
 
-  $ jug example_project
+    $ jug example_project
 
 Magic happens, and example_project's environment is set up.
 
-  $ jug issues
+    $ jug issues
 
 Kaboom, I'm in the issue tracker for example_project! Might be github, might be Pivotal.
 
-  $ jug basecamp
-  $ jug github
+    $ jug basecamp
+    $ jug github
 
 Should be self explanatory.
 
-  $ jug another_project
+    $ jug another_project
   
 And now I'm ready to rock for another_project. 
 Maybe a Redis server is started. I'm in another\_project's directory. Something might have been cleaned up for example\_project. basically, magic.
@@ -31,8 +31,8 @@ How it works
 Juggle uses a _jugfile_, which (by default) lives in ~/.jugfile. It's a jsonified representation of the projects and resources that you've told Juggle about, as well as some info about who you are, and what the last project you were in was.
 
 When you ask to switch to a project:
-* If you're in an existing project, Juggle fires off the teardown calls on resources that you've specified for the old project.
-* Juggle fires off the startup calls on resources that you've specified for the new project.
+ - If you're in an existing project, Juggle fires off the teardown calls on resources that you've specified for the old project.
+ - Juggle fires off the startup calls on resources that you've specified for the new project.
 
 Resources can have both a startup & shutdown call, and can be called automatically, or only on user input. Good examples of automatic resources would be Redis, Thin, Guard, or your node.js server, and good examples of user-controlled resources would be URLs to your issue tracker, CI server, or time clock.
 
@@ -41,10 +41,10 @@ It's really easy to write your own resources - Juggle comes with a bunch of defa
 Quickstart
 ----------
 
-  gem install juggle ## advice: do this in your rvm @global gemset.
-  cd my_awesome_project
-  jug add my_awesome_project
-  jug edit my_awesome_project
+    gem install juggle ## advice: do this in your rvm @global gemset.
+    cd my_awesome_project
+    jug add my_awesome_project
+    jug edit my_awesome_project
   
 Juggle will autoscan your current directory for interesting clues, and try and build a sane project around it. You should now jug edit to make it your own.
 
@@ -72,9 +72,9 @@ On CWDs
 
 Jug can't change your CWD for you without a little work. There's another executable called jug\_cd, which returns a command to change to the cwd of the active Juggle project. There's a bunch of ways to make this work for you - jug amazing\_project && `jug\_cd` is one way.
 
-If you want it to be magical, put this at the end of your .bashrc:
+I have this at the end of my .bash\_profile:
 
-  function jugg() { jug "$@" && `jug_cd`; }
+    function jugg() { jug "$@" && `jug_cd`; }
   
 Writing & using resources
 -----------------
