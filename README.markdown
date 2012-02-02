@@ -31,8 +31,9 @@ How it works
 Juggle uses a _jugfile_, which (by default) lives in ~/.jugfile. It's a jsonified representation of the projects and resources that you've told Juggle about, as well as some info about who you are, and what the last project you were in was.
 
 When you ask to switch to a project:
- - If you're in an existing project, Juggle fires off the teardown calls on resources that you've specified for the old project.
- - Juggle fires off the startup calls on resources that you've specified for the new project.
+
+* If you're in an existing project, Juggle fires off the teardown calls on resources that you've specified for the old project.
+* Juggle fires off the startup calls on resources that you've specified for the new project.
 
 Resources can have both a startup & shutdown call, and can be called automatically, or only on user input. Good examples of automatic resources would be Redis, Thin, Guard, or your node.js server, and good examples of user-controlled resources would be URLs to your issue tracker, CI server, or time clock.
 
